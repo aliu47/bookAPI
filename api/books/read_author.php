@@ -13,14 +13,10 @@ $db = $database->connect();
 $book = new Book($db);
 
 //Get URL variable
-if (isset($_GET['limit'])) {
-    $getLimit = $_GET['limit'];
-    $result = $book->readLimit((int)$getLimit);
-}
+$getAuthor = $_GET['author'];
+
 //Book query
-else {
-    $result = $book->read();
-}
+$result = $book->readAuthor($getAuthor);
 //get row count
 $num = $result->rowCount();
 if ($num > 0) {
